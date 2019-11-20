@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
-	fmt.Println(auth.NewDefault().Sign(18292))
-	fmt.Println(auth.New("2347").Sign(18292))
+	a, err := auth.NewDefault()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(a.Sign(18292))
+	fmt.Println(auth.New([]byte("2347a")).Sign(18292))
 }
